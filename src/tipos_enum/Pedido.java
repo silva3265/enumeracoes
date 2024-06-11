@@ -30,4 +30,16 @@ public class Pedido {
         this.origem = origem;
     }
 
+    public int getTempoEntregaEmHoras() {
+        return status.getTempoEntregaEmHoras();
+
+//        return switch (status) {
+//            case EMITIDO -> 12;
+//            case FATURADO -> 10;
+//            case DESPACHADO -> 6;
+//            case ENTREGUE -> 0;
+//            default -> throw new IllegalStateException("Pedido não pode ser entregue");
+//        };
+    }
+
 }
