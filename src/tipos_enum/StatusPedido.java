@@ -11,7 +11,7 @@ public enum StatusPedido {
     EMITIDO(12) {
         @Override
         public boolean podeMudarParaCancelado(double valorPedido) {
-            return valorPedido < 100; /* ele só sera emitido caso o valorPedido for menor de 100 */
+            return valorPedido < 100;
         }
     },
     EM_ANALISE(11) {
@@ -23,7 +23,7 @@ public enum StatusPedido {
     FATURADO(10) {
         @Override
         public boolean podeMudarParaCancelado(double valorPedido) {
-            return false; /* retorna false porque nao pode */
+            return false;
         }
     },
     SEPARADO(8) {
@@ -64,6 +64,6 @@ public enum StatusPedido {
         return tempoEntregaEmHoras;
     }
 
-    public abstract boolean podeMudarParaCancelado(double valorPedido); /* o metodo abstrato nao tem implementação */
-    /* precisamos sobrescrever esse metodo dentro do bloco da condtante 'Override '*/
+    public abstract boolean podeMudarParaCancelado(double valorPedido);
+
 }
