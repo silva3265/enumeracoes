@@ -19,9 +19,9 @@ public class Pedido {
         return status;
     }
 
-//    public void setStatus(StatusPedido status) {
-//        this.status = status;
-//    }
+    public void setStatus(StatusPedido status) {
+        this.status = status;
+    }
 
     public OrigemPedido getOrigem() {
         return origem;
@@ -51,7 +51,7 @@ public class Pedido {
         status = StatusPedido.EMITIDO;
     }
 
-    public void cancelar() { /* Metodo cancelar pedido (porque esta na classe 'Pedido')*/
+    public void cancelar() {
         if (getStatus().podeMudarParaCancelado(getValorTotal())) {
             status = StatusPedido.CANCELADO;
         } else {

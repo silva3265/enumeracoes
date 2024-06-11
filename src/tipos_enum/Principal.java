@@ -6,7 +6,7 @@ public class Principal {
         Pedido pedido = new Pedido();
         pedido.setNomeCliente("João da Silva");
         pedido.setValorTotal(120);
-//        pedido.emitir();
+        pedido.setStatus(StatusPedido.EM_ANALISE);
         pedido.cancelar();
 
         System.out.println(pedido.getStatus());
