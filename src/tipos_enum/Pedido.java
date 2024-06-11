@@ -3,6 +3,7 @@ package tipos_enum;
 public class Pedido {
 
     private String nomeCliente;
+    private double valorTotal;
     private StatusPedido status = StatusPedido.RASCUNHO;
     private OrigemPedido origem = OrigemPedido.BALCAO;
 
@@ -18,9 +19,9 @@ public class Pedido {
         return status;
     }
 
-    public void setStatus(StatusPedido status) {
-        this.status = status;
-    }
+//    public void setStatus(StatusPedido status) {
+//        this.status = status;
+//    }
 
     public OrigemPedido getOrigem() {
         return origem;
@@ -30,16 +31,32 @@ public class Pedido {
         this.origem = origem;
     }
 
+    public double getValorTotal() {
+        return valorTotal;
+    }
+
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
+    }
+
     public int getTempoEntregaEmHoras() {
         return status.getTempoEntregaEmHoras();
+    }
 
-//        return switch (status) {
-//            case EMITIDO -> 12;
-//            case FATURADO -> 10;
-//            case DESPACHADO -> 6;
-//            case ENTREGUE -> 0;
-//            default -> throw new IllegalStateException("Pedido não pode ser entregue");
-//        };
+    public void marcarComoEntregue() {
+        status = StatusPedido.ENTREGUE;
+    }
+
+    public void emitir() {
+        status = StatusPedido.EMITIDO;
+    }
+
+    public void cancelar() { /* Metodo cancelar pedido (porque esta na classe 'Pedido')*/
+        if (getStatus().podeMudarParaCancelado(getValorTotal())) {
+            status = StatusPedido.CANCELADO;
+        } else {
+            throw new IllegalStateException("Pedido não pode ser cancelado");
+        }
     }
 
 }
